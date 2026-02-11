@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import Layout from './components/Layout';
-import RedoxChat from './components/RedoxChat';
-import InteractiveBalancing from './components/InteractiveBalancing';
-import { LESSONS, PRACTICE_EXAMPLES } from './constants';
+import Layout from './components/Layout.tsx';
+import RedoxChat from './components/RedoxChat.tsx';
+import InteractiveBalancing from './components/InteractiveBalancing.tsx';
+import { LESSONS, PRACTICE_EXAMPLES } from './constants.tsx';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'LEARN' | 'PRACTICE' | 'CHAT'>('LEARN');

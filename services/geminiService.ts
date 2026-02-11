@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { Message, ValidationResult } from "../types";
+import { Message, ValidationResult } from "../types.ts";
 
 const SYSTEM_INSTRUCTION = `
 Bạn là một giáo viên Hóa học chuyên gia về Phản ứng Oxi hóa - Khử. 
@@ -24,7 +24,7 @@ export class GeminiService {
   private ai: GoogleGenAI;
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   }
 
   async validateStep(equation: string, stepId: number, userInput: string): Promise<ValidationResult> {
@@ -64,7 +64,7 @@ export class GeminiService {
 
   async sendMessage(history: Message[], userInput: string): Promise<string> {
     try {
-      const aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+      const aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await aiInstance.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: [
